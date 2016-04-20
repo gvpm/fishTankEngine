@@ -90,7 +90,7 @@ public class BlueTangFish extends LifeForm {
     @Override
     public void updateLife() {
         life = (float) (life-0.1);
-        System.out.println(life);
+        //System.out.println(life);
         if(life<0)
             life = 0;
     }
