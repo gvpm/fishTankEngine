@@ -9,27 +9,50 @@ The program is a NetBeans 8.1 Project using the Processing Core (The build .jar 
 === Characteristics:
 The running program is like those old Windows screensavers where you have sea creatures moving independently.
 
-Currently there are 2 types of fish and their only difference is their appearence.
+Currently there are 2 types of life forms and their only difference is their appearence.
+
 
 === About the Classes:
   Sketch.java
     Is the main application class, is extends PApplet and contains the main.
     In there, the fish tank is created and the creatures are placed inside the fish tank.
+    The life forms (creatures) are created using the factory (See LifeFormFactory.java) by simply calling a function
+    "factory.fabricate(1,5)" that means, create 5 creatures of type 1!
+    
     This class is also reponsible to trigger certain events (addFood in tak class for example) when the mouse is clicked.
     
-    After the tank is instantiated in the beginning, this lass is responsible to call the tank update and draw function in each frame.
+    After the tank is instantiated in the beginning, this class is responsible to call the tank update and draw function in each frame.
     
   Tank.java
     This class is responsible to store all the life forms there are inside the tank, and also the foods placed.
     It calls the update and draw function of all the above aswell.
     
-    The tank has also some interesting roles. It is responsible for checking if the life forms had hit some of the walls and instructs them to change their direction.
+    The tank has also some interesting roles. 
     It also loops using a nested for loop checking if the life forms colided with the food, and in the cae where the life form is hungry and it encontered food, intructs the life form to eat it and removes the food from the tank.
     The tank also remove the dead life forms.
     
   LifeForm.java
+  
+  It is an abstract class, it cant be instantiated.
     This class dictates the type of structure that works with the rest of the tank, if you want to create your own creature, just extend that class and implement the not implemented functions and your creature will work in the tank.
     
     The life form, once created, knows where it lives, the tank its in, meaning that it can look where the foods are and do in their directions whenever it is hungry.
-    Ah one tnk
+    all the life forms have one Object position that determines theis position in the screen and also , the life form knows the direction its is going.
+    
+  Position.java  
+    The position is responsible to change itself, and it requires 2 things, the direction and the speed. Basicaly the life form will tell the position "move to this direction wth this speed" and the position will be updated. and if a wall was hit it will take cre of that aswll by changing the direction of the lifeform.
+      A direction system is used, with 8 directions, north, east, south west, and the one in between.
+    
+  BlueTangFish and ClowFish are implementations of the life form.
   
+  Food.java
+    Is a really simple class tha provides an interface where you can check by receiving a object position if thta position hit the food.
+    
+    Implements its own drawing function and update, that is called by the tank.
+    
+  LifeFormFactory.java
+  
+    One of the most interesting classed in the program. It is a implementation of the known programming method called factoy.
+    It is responsible for instantiating the different kinds of life forms your program have, basically, if you want to add a new one, you dont have to change your entire code. You implement your class , make some changes in the factory teaching how to instanciate it, and then you call the factory on the main sketch with a simple fuction telling it to put your new kind of fish on the tank.
+    All the program will treat the creatures as lifeforms, no matter what life form it is.
+    
