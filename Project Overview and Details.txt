@@ -4,9 +4,32 @@ Fish Tank Engine
 
 This project consists in a simulated fish tank, with few carachteristics but a robust structure. 
 
-The
+The program is a NetBeans 8.1 Project using the Processing Core (The build .jar version is on the dist folder) To run, either open the project on Netbeans or Run de FishTankEngine.jar on the dist folder
 
-Characteristics:
+=== Characteristics:
 The running program is like those old Windows screensavers where you have sea creatures moving independently.
 
 Currently there are 2 types of fish and their only difference is their appearence.
+
+=== About the Classes:
+  Sketch.java
+    Is the main application class, is extends PApplet and contains the main.
+    In there, the fish tank is created and the creatures are placed inside the fish tank.
+    This class is also reponsible to trigger certain events (addFood in tak class for example) when the mouse is clicked.
+    
+    After the tank is instantiated in the beginning, this lass is responsible to call the tank update and draw function in each frame.
+    
+  Tank.java
+    This class is responsible to store all the life forms there are inside the tank, and also the foods placed.
+    It calls the update and draw function of all the above aswell.
+    
+    The tank has also some interesting roles. It is responsible for checking if the life forms had hit some of the walls and instructs them to change their direction.
+    It also loops using a nested for loop checking if the life forms colided with the food, and in the cae where the life form is hungry and it encontered food, intructs the life form to eat it and removes the food from the tank.
+    The tank also remove the dead life forms.
+    
+  LifeForm.java
+    This class dictates the type of structure that works with the rest of the tank, if you want to create your own creature, just extend that class and implement the not implemented functions and your creature will work in the tank.
+    
+    The life form, once created, knows where it lives, the tank its in, meaning that it can look where the foods are and do in their directions whenever it is hungry.
+    Ah one tnk
+  
