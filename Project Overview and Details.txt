@@ -1,1 +1,12 @@
-Init
+Guilherme Villar Piccinini de Magalhaes
+
+Fish Tank Engine
+
+This project consists in a simulated fish tank, with few carachteristics but a robust structure. 
+
+The
+
+Characteristics:
+The running program is like those old Windows screensavers where you have sea creatures moving independently.
+
+Currently there are 2 types of fish and their only difference is their appearence.
